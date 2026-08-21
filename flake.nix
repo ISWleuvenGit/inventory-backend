@@ -2,7 +2,7 @@
   description = "Inventory backend development shell";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -12,18 +12,16 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in {
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
+          buildInputs = with pkgs; [
             nodejs_22
+            #postgresql_15
             openssl
-            mysql84
           ];
-
-          shellHook = ''
-
-            echo "Inventory backend shell"
-            echo "Node: $(node --version)"
-            echo "npm:  $(npm --version)"
-          '';
+          env = {
+            PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
+            PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
+            PRISMA_SCHEMA_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/schema-engine";
+          };
         };
       });
 }
