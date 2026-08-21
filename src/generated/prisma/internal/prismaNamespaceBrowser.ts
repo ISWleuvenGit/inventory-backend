@@ -51,7 +51,15 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Product: 'Product'
+  User: 'User',
+  Session: 'Session',
+  Account: 'Account',
+  Verification: 'Verification',
+  Inventory: 'Inventory',
+  InventoryUser: 'InventoryUser',
+  PriceVariable: 'PriceVariable',
+  Item: 'Item',
+  SoldItem: 'SoldItem'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -70,16 +78,123 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const ProductScalarFieldEnum = {
+export const UserScalarFieldEnum = {
   id: 'id',
+  email: 'email',
+  emailVerified: 'emailVerified',
   name: 'name',
-  sku: 'sku',
-  quantity: 'quantity',
+  role: 'role',
+  age: 'age',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const SessionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  expiresAt: 'expiresAt',
+  token: 'token',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+export const AccountScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  accountId: 'accountId',
+  providerId: 'providerId',
+  accessToken: 'accessToken',
+  refreshToken: 'refreshToken',
+  idToken: 'idToken',
+  expiresAt: 'expiresAt',
+  password: 'password',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
+
+
+export const VerificationScalarFieldEnum = {
+  id: 'id',
+  identifier: 'identifier',
+  value: 'value',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
+
+
+export const InventoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryScalarFieldEnum = (typeof InventoryScalarFieldEnum)[keyof typeof InventoryScalarFieldEnum]
+
+
+export const InventoryUserScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  inventoryId: 'inventoryId',
+  role: 'role',
+  addedAt: 'addedAt'
+} as const
+
+export type InventoryUserScalarFieldEnum = (typeof InventoryUserScalarFieldEnum)[keyof typeof InventoryUserScalarFieldEnum]
+
+
+export const PriceVariableScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  value: 'value',
+  type: 'type',
+  isDefault: 'isDefault',
+  itemId: 'itemId'
+} as const
+
+export type PriceVariableScalarFieldEnum = (typeof PriceVariableScalarFieldEnum)[keyof typeof PriceVariableScalarFieldEnum]
+
+
+export const ItemScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  buyPrice: 'buyPrice',
+  quantity: 'quantity',
+  buyedAt: 'buyedAt',
+  inventoryId: 'inventoryId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ItemScalarFieldEnum = (typeof ItemScalarFieldEnum)[keyof typeof ItemScalarFieldEnum]
+
+
+export const SoldItemScalarFieldEnum = {
+  id: 'id',
+  itemId: 'itemId',
+  finalSellPrice: 'finalSellPrice',
+  quantity: 'quantity',
+  priceVariableName: 'priceVariableName',
+  isCustomPrice: 'isCustomPrice',
+  paidCash: 'paidCash',
+  soldAt: 'soldAt'
+} as const
+
+export type SoldItemScalarFieldEnum = (typeof SoldItemScalarFieldEnum)[keyof typeof SoldItemScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -90,10 +205,93 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-export const ProductOrderByRelevanceFieldEnum = {
+export const UserOrderByRelevanceFieldEnum = {
+  id: 'id',
+  email: 'email',
   name: 'name',
-  sku: 'sku'
+  role: 'role'
 } as const
 
-export type ProductOrderByRelevanceFieldEnum = (typeof ProductOrderByRelevanceFieldEnum)[keyof typeof ProductOrderByRelevanceFieldEnum]
+export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+export const SessionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  token: 'token',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent'
+} as const
+
+export type SessionOrderByRelevanceFieldEnum = (typeof SessionOrderByRelevanceFieldEnum)[keyof typeof SessionOrderByRelevanceFieldEnum]
+
+
+export const AccountOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  accountId: 'accountId',
+  providerId: 'providerId',
+  accessToken: 'accessToken',
+  refreshToken: 'refreshToken',
+  idToken: 'idToken',
+  password: 'password'
+} as const
+
+export type AccountOrderByRelevanceFieldEnum = (typeof AccountOrderByRelevanceFieldEnum)[keyof typeof AccountOrderByRelevanceFieldEnum]
+
+
+export const VerificationOrderByRelevanceFieldEnum = {
+  id: 'id',
+  identifier: 'identifier',
+  value: 'value'
+} as const
+
+export type VerificationOrderByRelevanceFieldEnum = (typeof VerificationOrderByRelevanceFieldEnum)[keyof typeof VerificationOrderByRelevanceFieldEnum]
+
+
+export const InventoryOrderByRelevanceFieldEnum = {
+  name: 'name',
+  description: 'description'
+} as const
+
+export type InventoryOrderByRelevanceFieldEnum = (typeof InventoryOrderByRelevanceFieldEnum)[keyof typeof InventoryOrderByRelevanceFieldEnum]
+
+
+export const InventoryUserOrderByRelevanceFieldEnum = {
+  userId: 'userId',
+  role: 'role'
+} as const
+
+export type InventoryUserOrderByRelevanceFieldEnum = (typeof InventoryUserOrderByRelevanceFieldEnum)[keyof typeof InventoryUserOrderByRelevanceFieldEnum]
+
+
+export const PriceVariableOrderByRelevanceFieldEnum = {
+  name: 'name',
+  type: 'type'
+} as const
+
+export type PriceVariableOrderByRelevanceFieldEnum = (typeof PriceVariableOrderByRelevanceFieldEnum)[keyof typeof PriceVariableOrderByRelevanceFieldEnum]
+
+
+export const ItemOrderByRelevanceFieldEnum = {
+  name: 'name',
+  description: 'description'
+} as const
+
+export type ItemOrderByRelevanceFieldEnum = (typeof ItemOrderByRelevanceFieldEnum)[keyof typeof ItemOrderByRelevanceFieldEnum]
+
+
+export const SoldItemOrderByRelevanceFieldEnum = {
+  priceVariableName: 'priceVariableName'
+} as const
+
+export type SoldItemOrderByRelevanceFieldEnum = (typeof SoldItemOrderByRelevanceFieldEnum)[keyof typeof SoldItemOrderByRelevanceFieldEnum]
 

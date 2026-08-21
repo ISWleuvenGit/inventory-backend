@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "./src",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true
+  },
+  "include": [
+    "src/server.ts",
+    "src/lib/**/*.ts",
+    "src/controller/user.routes.ts",
+    "src/dto/user.dto.ts",
+    "src/model/user.ts",
+    "src/repository/user.db.ts",
+    "src/service/user.service.ts",
+    "src/types/**/*.ts",
+    "src/middleware/error.middleware.ts",
+    "src/util/ops.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/*.copy.ts",
+    "src/**/* copy.ts",
+    "src/**/auth.middleware.ts",
+    "src/**/authorization.middleware.ts",
+    "src/**/validators.ts",
+    "src/**/safe.ts",
+    "src/**/analytics.service.ts",
+    "src/**/inventory.service.ts",
+    "src/**/item.service.ts",
+    "src/**/priceVariable.service.ts",
+    "src/**/soldItem.service.ts",
+    "src/**/base.repository.ts",
+    "src/**/database.ts",
+    "src/**/inventory.db.ts",
+    "src/**/item.db.ts",
+    "src/**/priceVariable.db.ts",
+    "src/**/soldItem.db.ts"
+  ]
+}

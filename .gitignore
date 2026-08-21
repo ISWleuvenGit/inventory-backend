@@ -1,1 +1,12 @@
-./node_modules
+node_modules/
+.env
+.env.*
+.npm
+.cache/
+coverage/
+dist/
+build/
+*.log
+src/generated/
+repository/prisma/migrations/
+.DS_Store

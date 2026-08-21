@@ -16,6 +16,8 @@
             nodejs_22
             #postgresql_15
             openssl
+            bubblewrap
+            socat
           ];
           env = {
             PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
