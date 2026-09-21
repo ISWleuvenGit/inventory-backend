@@ -12,7 +12,7 @@ Use the correct command:
 nix develop --impure
 ```
 
-If you run `nix develp`, it will fail because of the typo.
+If you run `nix develp`, it will fail because of the typo. This is what Thomas often does.
 
 ### 2) Configure environment variables
 
